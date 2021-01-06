@@ -3,6 +3,7 @@ const saveContractAddress = require('../helpers/saveContractAddress');
 const coreInitialStorage = require('./initialStorage/core');
 const config = require('../truffle-config');
 const finishSetup = require('./finishSetup/finishSetup');
+const prepareForSDK = require('./finishSetup/prepareForSDK');
 
 module.exports = async (deployer, network, accounts) => {
     deployer.deploy(core, coreInitialStorage.base(
@@ -20,5 +21,10 @@ module.exports = async (deployer, network, accounts) => {
             console.log("Finished setup with new Administrator")
             console.log("Operation Hash", operation.hash)
         };
+        return prepareForSDK(network)
+    }).then(operation => {
+        if (operation && operation.hash) {
+            console.log("Finished setup for SDK testing")
+        }
     });
 };

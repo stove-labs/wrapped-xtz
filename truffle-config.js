@@ -11,7 +11,7 @@ module.exports = {
         network_id: "*",
         secretKey: alice.sk,
         type: "tezos",
-        finishSetup: false
+        finishSetup: true
     },
     delphinet: {
         host: "https://testnet-tezos.giganode.io",
