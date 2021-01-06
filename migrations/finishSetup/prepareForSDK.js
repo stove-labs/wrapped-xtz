@@ -11,7 +11,7 @@ async function setupTestOvenForTest(delegate, ovenOwner, coreHelper) {
     );
 
     if (delegate === null) {
-        saveContractAddress('ovenWithOutDelegate', ovenAddress);
+        saveContractAddress('ovenWithoutDelegate', ovenAddress);
     } else {
         saveContractAddress('ovenWithDelegate', ovenAddress);
     }
